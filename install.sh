@@ -10,6 +10,7 @@ sudo dnf install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
 
 sudo dnf install -y foreman-installer
 
+
 # インストール実行（環境に合わせてネットワーク値を変更してください）
 sudo foreman-installer \
   --enable-foreman-proxy \
@@ -22,3 +23,15 @@ sudo foreman-installer \
   --foreman-proxy-dns-interface=enp0s20f0u4 \
   --foreman-proxy-dns-forwarders=8.8.8.8 \
   --enable-foreman-plugin-discovery
+
+
+# firewall解放
+# HTTPとHTTPSの通信を許可
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+
+# 設定を反映
+sudo firewall-cmd --reload
+
+# 許可されたか確認
+sudo firewall-cmd --list-services
