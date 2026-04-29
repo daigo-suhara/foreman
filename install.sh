@@ -1,3 +1,6 @@
+# fqdn設定
+hostnamectl set-hostname foreman.example.com
+
 # OSのアップデート
 sudo dnf update -y
 
@@ -6,8 +9,6 @@ sudo dnf install -y https://yum.theforeman.org/releases/3.18/el9/x86_64/foreman-
 sudo dnf install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
 
 sudo dnf install -y foreman-installer
-
-hostnamectl set-hostname foreman.example.com
 
 # インストール実行（環境に合わせてネットワーク値を変更してください）
 sudo foreman-installer \
