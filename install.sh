@@ -7,6 +7,8 @@ sudo dnf install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
 
 sudo dnf install -y foreman-installer
 
+hostnamectl set-hostname foreman.example.com
+
 # インストール実行（環境に合わせてネットワーク値を変更してください）
 sudo foreman-installer \
   --enable-foreman-proxy \
